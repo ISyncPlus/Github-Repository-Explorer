@@ -6,21 +6,28 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <div className="fixed top-0 right-0 -z-10 h-[26rem] w-[26rem] rounded-full bg-sky-600/20 blur-3xl" />
-      <div className="fixed bottom-0 left-0 -z-10 h-[24rem] w-[24rem] rounded-full bg-blue-900/30 blur-3xl" />
+    <div className="min-h-screen bg-[#050505] text-[#e5e2e1]">
+      <div className="fixed inset-0 -z-20 bg-[radial-gradient(circle_at_top_right,rgba(47,128,237,0.14),transparent_42%),radial-gradient(circle_at_bottom_left,rgba(47,128,237,0.08),transparent_35%)]" />
+      <div className="fixed left-0 top-1/2 z-10 hidden -translate-y-1/2 px-2 md:block pointer-events-none">
+        <div className="h-64 border-l border-[#474747] relative">
+          <div className="absolute top-0 -left-px h-1 w-1 bg-[#2f80ed]" />
+          <div className="absolute bottom-0 -left-px h-1 w-1 bg-[#2f80ed]" />
+        </div>
+      </div>
 
-      <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-xl">
-        <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-sky-600/20 border border-sky-400/30 flex items-center justify-center text-sky-300 font-bold">
+      <header className="sticky top-0 z-40 border-b border-[#474747] bg-[#131313]/95 backdrop-blur-xl">
+        <div className="mx-auto max-w-6xl px-6 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-3 uppercase">
+            <div className="h-8 w-8 border border-[#474747] bg-[#1c1b1b] flex items-center justify-center text-[#2f80ed] text-xs font-black">
               G
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Explorer</p>
-              <p className="font-semibold">GitHub Repository Explorer</p>
+              <p className="text-[10px] tracking-[0.28em] text-[#919191]">Core Protocol</p>
+              <p className="text-sm tracking-[0.14em] font-bold">GitHub Archive Explorer</p>
             </div>
           </div>
+
+          <span className="text-[#2f80ed] text-xs tracking-[0.25em] uppercase">Explore</span>
         </div>
       </header>
 

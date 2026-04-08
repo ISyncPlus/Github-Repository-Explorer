@@ -22,24 +22,29 @@ export function Filters({
   onClear,
 }: FiltersProps) {
   return (
-    <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4 md:p-6 space-y-4">
+    <section className="border border-[#474747] bg-[#131313] p-4 md:p-6 space-y-5">
+      <div className="flex items-center justify-between">
+        <h2 className="text-[10px] uppercase tracking-[0.3em] text-[#c6c6c6]">Navigation Archive</h2>
+        <span className="text-[#2f80ed] text-xs uppercase tracking-[0.2em]">Filters</span>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <label className="space-y-2">
-          <span className="text-xs uppercase tracking-widest text-slate-400">Filter by repo name</span>
+          <span className="text-[10px] uppercase tracking-[0.24em] text-[#919191]">Filter By Repo Name</span>
           <input
             value={nameFilter}
             onChange={(event) => onNameFilterChange(event.target.value)}
-            placeholder="e.g. api, cli, web"
-            className="w-full rounded-lg bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100"
+            placeholder="API, CLI, WEB"
+            className="w-full bg-[#0e0e0e] border border-[#474747] px-3 py-2.5 text-[#e5e2e1] placeholder:text-[#666] outline-none focus:border-[#2f80ed]"
           />
         </label>
 
         <label className="space-y-2">
-          <span className="text-xs uppercase tracking-widest text-slate-400">Filter by language</span>
+          <span className="text-[10px] uppercase tracking-[0.24em] text-[#919191]">Filter By Language</span>
           <select
             value={selectedLanguage}
             onChange={(event) => onLanguageChange(event.target.value)}
-            className="w-full rounded-lg bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100"
+            className="w-full bg-[#0e0e0e] border border-[#474747] px-3 py-2.5 text-[#e5e2e1] outline-none focus:border-[#2f80ed]"
           >
             <option value="all">All languages</option>
             {languages.map((language) => (
@@ -51,11 +56,11 @@ export function Filters({
         </label>
 
         <label className="space-y-2">
-          <span className="text-xs uppercase tracking-widest text-slate-400">Sort repositories</span>
+          <span className="text-[10px] uppercase tracking-[0.24em] text-[#919191]">Sort Repositories</span>
           <select
             value={sortBy}
             onChange={(event) => onSortChange(event.target.value as RepoSortKey)}
-            className="w-full rounded-lg bg-slate-900 border border-slate-700 px-3 py-2 text-slate-100"
+            className="w-full bg-[#0e0e0e] border border-[#474747] px-3 py-2.5 text-[#e5e2e1] outline-none focus:border-[#2f80ed]"
           >
             <option value="updated">Most Recently Updated</option>
             <option value="stars">Most Stars</option>
@@ -68,7 +73,7 @@ export function Filters({
         <button
           type="button"
           onClick={onClear}
-          className="px-4 py-2 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 transition-colors"
+          className="px-4 py-2 border border-[#474747] bg-[#1b1b1b] text-[#c8c6c5] text-xs uppercase tracking-[0.18em] hover:border-[#2f80ed] hover:text-white transition-colors"
         >
           Clear Filters
         </button>

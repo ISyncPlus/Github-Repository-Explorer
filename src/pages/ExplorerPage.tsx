@@ -118,12 +118,13 @@ export function ExplorerPage() {
 
   return (
     <AppShell>
-      <section className="space-y-4">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-none">
-          Query the <span className="text-sky-400">Source</span>
+      <section className="space-y-4 md:space-y-6 border-l border-[#474747] pl-5 md:pl-7">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-[#c6c6c6]">Initialize Query</p>
+        <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[0.95] uppercase">
+          Expose The <span className="text-[#2f80ed]">Archive</span>
         </h1>
-        <p className="text-slate-300 max-w-2xl text-lg">
-          Search by GitHub username to inspect profile metadata and repositories with fast client-side filtering.
+        <p className="text-[#c6c6c6] max-w-2xl text-base md:text-lg leading-relaxed">
+          Query GitHub identities, inspect metadata, and audit repositories through a compact terminal-inspired surface.
         </p>
       </section>
 
@@ -136,9 +137,9 @@ export function ExplorerPage() {
       />
 
       {error ? (
-        <section className="rounded-2xl border border-rose-700/60 bg-rose-950/40 p-5">
-          <h2 className="text-lg font-bold text-rose-200">Search error</h2>
-          <p className="text-rose-100/90 mt-1">{error}</p>
+        <section className="border border-[#93000a] bg-[#2b1113] px-5 py-4">
+          <h2 className="text-sm uppercase tracking-[0.2em] text-[#ffb4ab]">Search Error</h2>
+          <p className="text-[#ffdad6] mt-2">{error}</p>
         </section>
       ) : null}
 

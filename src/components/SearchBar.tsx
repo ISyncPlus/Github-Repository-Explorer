@@ -117,32 +117,37 @@ export function SearchBar({
   return (
     <div ref={rootRef} className="relative">
       <form onSubmit={handleSubmit} className="relative group">
-      <div className="absolute inset-0 bg-sky-500/10 rounded-2xl blur-xl transition-opacity opacity-50 group-focus-within:opacity-100" />
-      <div className="relative rounded-2xl border border-slate-700 bg-slate-900/80 backdrop-blur-xl p-2 sm:p-3 flex items-center gap-2 sm:gap-3">
-        <div className="hidden sm:flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-300">@</div>
-        <input
-          type="text"
-          value={value}
-          onChange={(event) => handleChange(event.target.value)}
-          onFocus={() => {
-            setIsFocused(true)
-            openDropdown()
-          }}
-          onBlur={() => setIsFocused(false)}
-          onKeyDown={handleInputKeyDown}
-          placeholder="Enter GitHub username"
-          className="flex-1 bg-transparent border-none outline-none text-slate-100 placeholder:text-slate-500 px-2 py-2"
-          aria-label="GitHub username"
-          autoComplete="off"
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          className="shrink-0 px-4 sm:px-6 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold transition-colors"
-        >
-          {loading ? 'Searching...' : 'Explore'}
-        </button>
-      </div>
+        <div className="absolute -inset-3 -z-10 border border-[#2f80ed]/25 opacity-0 transition-opacity duration-200 group-focus-within:opacity-100" />
+        <div className="relative border border-[#474747] bg-[#131313] p-3 sm:p-4 flex items-center gap-2 sm:gap-4">
+          <div className="hidden sm:flex h-10 w-10 items-center justify-center border border-[#474747] bg-[#1c1b1b] text-[#2f80ed] text-sm font-bold">
+            @
+          </div>
+          <div className="flex-1">
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#919191] mb-1">Query The Source</p>
+            <input
+              type="text"
+              value={value}
+              onChange={(event) => handleChange(event.target.value)}
+              onFocus={() => {
+                setIsFocused(true)
+                openDropdown()
+              }}
+              onBlur={() => setIsFocused(false)}
+              onKeyDown={handleInputKeyDown}
+              placeholder="Type here..."
+              className="w-full bg-transparent border-none outline-none text-[#e5e2e1] placeholder:text-[#666] text-sm md:text-base"
+              aria-label="GitHub username"
+              autoComplete="off"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="shrink-0 px-4 sm:px-6 py-3 border border-[#474747] bg-white text-black hover:bg-[#2f80ed] hover:text-white disabled:opacity-60 disabled:cursor-not-allowed text-xs sm:text-sm font-black uppercase tracking-[0.14em] transition-colors"
+          >
+            {loading ? 'Scanning...' : 'Explore'}
+          </button>
+        </div>
       </form>
 
       {shouldShowDropdown ? (
@@ -150,7 +155,7 @@ export function SearchBar({
           id="search-history-dropdown"
           role="listbox"
           aria-label="Recent searches"
-          className="absolute z-50 mt-2 w-full overflow-y-auto max-h-64 rounded-2xl border border-slate-700 bg-slate-900/95 backdrop-blur-xl shadow-2xl"
+          className="absolute z-50 mt-2 w-full overflow-y-auto max-h-64 border border-[#474747] bg-[#131313] shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
         >
           {recentHistory.map((username, index) => {
             const isActive = index === activeIndex
@@ -165,13 +170,14 @@ export function SearchBar({
                 }}
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => selectHistoryItem(username)}
-                className={`w-full px-4 py-3 text-left transition-colors ${
+                className={`w-full px-4 py-3 text-left transition-colors border-b border-[#2a2a2a] last:border-b-0 ${
                   isActive
-                    ? 'bg-sky-500/15 text-sky-200'
-                    : 'text-slate-200 hover:bg-slate-800/80 hover:text-sky-200'
+                    ? 'bg-[#152437] text-[#d7e3ff]'
+                    : 'text-[#c8c6c5] hover:bg-[#1c1b1b] hover:text-[#2f80ed]'
                 }`}
               >
-                {username}
+                <span className="text-[10px] tracking-[0.2em] uppercase text-[#919191] mr-3">{String(index + 1).padStart(2, '0')}</span>
+                <span className="uppercase tracking-[0.12em] text-xs sm:text-sm font-semibold">{username}</span>
               </button>
             )
           })}

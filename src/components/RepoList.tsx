@@ -63,7 +63,7 @@ function RepoListContent({
 }) {
   if (!hasSearched) {
     return (
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-8 text-slate-300">
+      <div className="border border-[#474747] bg-[#131313] p-8 text-[#c8c6c5] uppercase tracking-[0.14em] text-xs">
         Search for a user to explore repositories.
       </div>
     )
@@ -71,11 +71,11 @@ function RepoListContent({
 
   if (filteredRepoCount === 0) {
     return (
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-8 space-y-2">
-        <h3 className="text-xl font-bold">
+      <div className="border border-[#474747] bg-[#131313] p-8 space-y-2">
+        <h3 className="text-xl font-black uppercase tracking-[0.08em]">
           {totalRepoCount === 0 ? 'No public repositories found.' : 'No repositories match this view.'}
         </h3>
-        <p className="text-slate-300">
+        <p className="text-[#c8c6c5]">
           {totalRepoCount === 0
             ? 'This user has not published repositories yet.'
             : 'Try another filter or search for a different user.'}
@@ -93,8 +93,8 @@ function RepoListContent({
       </section>
 
       {totalPages > 1 ? (
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-slate-300">
+        <section className="border border-[#474747] bg-[#131313] p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs sm:text-sm text-[#c8c6c5] uppercase tracking-[0.12em]">
             Page {currentPage} of {totalPages} ({filteredRepoCount} repositories)
           </p>
           <div className="flex items-center gap-2">
@@ -102,7 +102,7 @@ function RepoListContent({
               type="button"
               onClick={() => onPageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="px-3 py-2 rounded-lg border border-slate-700 bg-slate-900 text-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:border-slate-500 transition-colors"
+              className="px-3 py-2 border border-[#474747] bg-[#0e0e0e] text-[#c8c6c5] disabled:opacity-50 disabled:cursor-not-allowed hover:border-[#2f80ed] hover:text-white transition-colors uppercase tracking-[0.12em] text-xs"
             >
               Previous
             </button>
@@ -110,7 +110,7 @@ function RepoListContent({
               type="button"
               onClick={() => onPageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="px-3 py-2 rounded-lg border border-slate-700 bg-slate-900 text-slate-200 disabled:opacity-50 disabled:cursor-not-allowed hover:border-slate-500 transition-colors"
+              className="px-3 py-2 border border-[#474747] bg-[#0e0e0e] text-[#c8c6c5] disabled:opacity-50 disabled:cursor-not-allowed hover:border-[#2f80ed] hover:text-white transition-colors uppercase tracking-[0.12em] text-xs"
             >
               Next
             </button>
@@ -124,9 +124,9 @@ function RepoListContent({
 function RepoListFixture() {
   return (
     <section className="space-y-4">
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 h-32" />
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 h-32" />
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 h-32" />
+      <div className="border border-[#474747] bg-[#131313] p-6 h-32" />
+      <div className="border border-[#474747] bg-[#131313] p-6 h-32" />
+      <div className="border border-[#474747] bg-[#131313] p-6 h-32" />
     </section>
   )
 }
@@ -134,20 +134,20 @@ function RepoListFixture() {
 function RepoListFallback() {
   return (
     <section className="space-y-4 animate-pulse">
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-3">
-        <div className="h-6 w-1/3 rounded bg-slate-800" />
-        <div className="h-4 w-full rounded bg-slate-800" />
-        <div className="h-4 w-2/3 rounded bg-slate-800" />
+      <div className="border border-[#474747] bg-[#131313] p-6 space-y-3">
+        <div className="h-6 w-1/3 bg-[#2a2a2a]" />
+        <div className="h-4 w-full bg-[#2a2a2a]" />
+        <div className="h-4 w-2/3 bg-[#2a2a2a]" />
       </div>
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-3">
-        <div className="h-6 w-1/3 rounded bg-slate-800" />
-        <div className="h-4 w-full rounded bg-slate-800" />
-        <div className="h-4 w-2/3 rounded bg-slate-800" />
+      <div className="border border-[#474747] bg-[#131313] p-6 space-y-3">
+        <div className="h-6 w-1/3 bg-[#2a2a2a]" />
+        <div className="h-4 w-full bg-[#2a2a2a]" />
+        <div className="h-4 w-2/3 bg-[#2a2a2a]" />
       </div>
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 space-y-3">
-        <div className="h-6 w-1/3 rounded bg-slate-800" />
-        <div className="h-4 w-full rounded bg-slate-800" />
-        <div className="h-4 w-2/3 rounded bg-slate-800" />
+      <div className="border border-[#474747] bg-[#131313] p-6 space-y-3">
+        <div className="h-6 w-1/3 bg-[#2a2a2a]" />
+        <div className="h-4 w-full bg-[#2a2a2a]" />
+        <div className="h-4 w-2/3 bg-[#2a2a2a]" />
       </div>
     </section>
   )
