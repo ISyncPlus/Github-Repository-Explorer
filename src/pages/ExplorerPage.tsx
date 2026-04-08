@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AppShell } from '../components/AppShell'
 import { Filters } from '../components/Filters'
 import { RepoList } from '../components/RepoList'
@@ -8,6 +8,8 @@ import { useGitHubUser } from '../hooks/useGitHubUser'
 import type { RepoSortKey } from '../types/github'
 import { pushSearchHistory, readSearchHistory } from '../utils/history'
 
+const REPOS_PER_PAGE = 6
+
 export function ExplorerPage() {
   const { user, repos, loading, error, fetchUser } = useGitHubUser()
   const [hasSearched, setHasSearched] = useState(false)
@@ -15,6 +17,7 @@ export function ExplorerPage() {
   const [nameFilter, setNameFilter] = useState('')
   const [selectedLanguage, setSelectedLanguage] = useState('all')
   const [sortBy, setSortBy] = useState<RepoSortKey>('updated')
+  const [currentPage, setCurrentPage] = useState(1)
 
   const languages = useMemo(() => {
     return Array.from(
@@ -43,6 +46,25 @@ export function ExplorerPage() {
       return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
     })
   }, [repos, nameFilter, selectedLanguage, sortBy])
+
+  const totalFilteredRepos = filteredAndSortedRepos.length
+  const totalPages = Math.max(1, Math.ceil(totalFilteredRepos / REPOS_PER_PAGE))
+
+  const paginatedRepos = useMemo(() => {
+    const start = (currentPage - 1) * REPOS_PER_PAGE
+    const end = start + REPOS_PER_PAGE
+    return filteredAndSortedRepos.slice(start, end)
+  }, [filteredAndSortedRepos, currentPage])
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [repos, nameFilter, selectedLanguage, sortBy])
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages)
+    }
+  }, [currentPage, totalPages])
 
   const performSearch = useCallback(
     async (username: string) => {
@@ -134,10 +156,14 @@ export function ExplorerPage() {
       />
 
       <RepoList
-        repos={filteredAndSortedRepos}
+        repos={paginatedRepos}
         loading={loading}
         hasSearched={hasSearched}
         totalRepoCount={repos.length}
+        filteredRepoCount={totalFilteredRepos}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
       />
     </AppShell>
   )
