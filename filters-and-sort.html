@@ -1,0 +1,399 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;family=Space+Grotesk:wght@300;400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#31353c",
+              "on-primary-fixed": "#001a41",
+              "outline-variant": "#424753",
+              "secondary-fixed-dim": "#b0c6f8",
+              tertiary: "#ffb693",
+              "surface-tint": "#adc6ff",
+              "on-tertiary-fixed-variant": "#7a2f00",
+              "on-error": "#690005",
+              "inverse-on-surface": "#2d3137",
+              "surface-container": "#1c2026",
+              "error-container": "#93000a",
+              "tertiary-fixed": "#ffdbcc",
+              "primary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#561f00",
+              "surface-container-highest": "#31353c",
+              surface: "#10141a",
+              "inverse-surface": "#dfe2eb",
+              "on-primary-container": "#ecefff",
+              primary: "#adc6ff",
+              "tertiary-container": "#b84b00",
+              "surface-dim": "#10141a",
+              "secondary-container": "#304671",
+              "tertiary-fixed-dim": "#ffb693",
+              "on-secondary-fixed": "#001a41",
+              "on-secondary-fixed-variant": "#304671",
+              "on-surface-variant": "#c2c6d6",
+              "surface-bright": "#353940",
+              "on-tertiary-fixed": "#351000",
+              "on-secondary": "#183059",
+              secondary: "#b0c6f8",
+              "on-primary": "#002e68",
+              "surface-container-lowest": "#0a0e14",
+              "surface-container-high": "#262a31",
+              "inverse-primary": "#005bc0",
+              "on-error-container": "#ffdad6",
+              background: "#10141a",
+              "on-tertiary-container": "#ffece5",
+              "secondary-fixed": "#d8e2ff",
+              "surface-container-low": "#181c22",
+              "on-surface": "#dfe2eb",
+              error: "#ffb4ab",
+              "on-background": "#dfe2eb",
+              "primary-container": "#0969da",
+              "primary-fixed": "#d8e2ff",
+              outline: "#8c909f",
+              "on-secondary-container": "#9fb5e6",
+              "on-primary-fixed-variant": "#004493",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Inter"],
+              body: ["Inter"],
+              label: ["Space Grotesk"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .ambient-occlusion {
+        box-shadow: 0 32px 64px rgba(223, 226, 235, 0.08);
+      }
+      .primary-gradient {
+        background: linear-gradient(145deg, #0969da 0%, #004493 100%);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+    <header
+      class="bg-[#181c22] docked full-width top-0 sticky flex items-center justify-between px-6 py-4 w-full z-40"
+    >
+      <div class="flex items-center gap-4">
+        <div
+          class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest"
+        >
+          <img
+            alt="User profile avatar"
+            class="w-full h-full object-cover"
+            data-alt="Professional male developer avatar with soft lighting, minimalist clean background, tech office aesthetic"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaQGjFFeCdNdBI1qQl9BvCOPaCqcqH6fRZAoO037sRmkC7vU7fflDCSjYq3EEnG7pXFUq-uR7sN3CbSXZKtTZ0jTMiXc75T7A1Vo0x5GHOaQSgF4Ph-ERc3jjAb-uFjMd4VXF9qjDOq56btRjQHjF_IsDbJWl55l1hRv-1IHC5OBwsxMtUBehCgD1rh3X4hdMZCCHBwkoSnbI704V0wY1x1YJDGsczaBYNKTxOSMQfpULYtt12PwWLsnN0dLP_-vjB13eTh3dlcyE"
+          />
+        </div>
+        <h1 class="text-xl font-bold tracking-tighter text-[#dfe2eb]">
+          Explorer
+        </h1>
+      </div>
+      <div class="flex gap-6 items-center">
+        <span
+          class="hidden md:block text-[#c2c6d6] font-['Inter'] font-bold tracking-tight text-sm cursor-pointer hover:bg-[#1c2026] transition-colors px-3 py-1 rounded"
+          >Explore</span
+        >
+        <span
+          class="hidden md:block text-[#adc6ff] font-['Inter'] font-bold tracking-tight text-sm cursor-pointer hover:bg-[#1c2026] transition-colors px-3 py-1 rounded"
+          >Repositories</span
+        >
+        <span
+          class="material-symbols-outlined text-[#dfe2eb] cursor-pointer scale-95 active:opacity-80 transition-all"
+          >search</span
+        >
+      </div>
+    </header>
+    <main class="min-h-screen p-6 md:p-12 lg:p-20 relative">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="md:col-span-8 flex flex-col gap-8">
+          <div class="flex flex-col gap-2">
+            <h2
+              class="text-5xl md:text-7xl font-bold tracking-tighter font-headline leading-none"
+            >
+              Refine <span class="text-primary-container">Source</span>
+            </h2>
+            <p
+              class="text-on-surface-variant font-label text-sm uppercase tracking-widest mt-4"
+            >
+              Active Parameters: 0 Selected
+            </p>
+          </div>
+          <div class="grid grid-cols-1 gap-6 opacity-40 select-none">
+            <div
+              class="bg-surface-container-low p-8 rounded-xl flex flex-col gap-4"
+            >
+              <div class="flex justify-between items-start">
+                <span
+                  class="font-label text-xs text-primary bg-primary/10 px-2 py-1 rounded-full"
+                  >TypeScript</span
+                >
+                <span class="font-label text-xs text-on-surface-variant"
+                  >2.4k stars</span
+                >
+              </div>
+              <h3 class="text-2xl font-bold font-headline">
+                athena-ui-framework
+              </h3>
+              <p class="text-on-surface-variant text-sm max-w-md">
+                The core architectural shell for modern editorial high-end
+                developer tools.
+              </p>
+            </div>
+            <div
+              class="bg-surface-container-low p-8 rounded-xl flex flex-col gap-4"
+            >
+              <div class="flex justify-between items-start">
+                <span
+                  class="font-label text-xs text-primary bg-primary/10 px-2 py-1 rounded-full"
+                  >Python</span
+                >
+                <span class="font-label text-xs text-on-surface-variant"
+                  >1.1k stars</span
+                >
+              </div>
+              <h3 class="text-2xl font-bold font-headline">
+                neural-atlas-engine
+              </h3>
+              <p class="text-on-surface-variant text-sm max-w-md">
+                Distributed processing layer for large-scale spatial datasets
+                and mapping metadata.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-surface/80 backdrop-blur-xl"
+      >
+        <div
+          class="w-full max-w-2xl bg-surface-container-low rounded-2xl overflow-hidden ambient-occlusion border border-outline-variant/15 flex flex-col md:flex-row h-[751px] md:h-auto"
+        >
+          <div
+            class="w-full md:w-56 bg-surface-container-high p-6 flex flex-col gap-6 md:border-r border-outline-variant/10"
+          >
+            <div class="flex items-center gap-2">
+              <span
+                class="material-symbols-outlined text-primary"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >tune</span
+              >
+              <span class="font-headline font-bold text-lg tracking-tight"
+                >Refine</span
+              >
+            </div>
+            <nav
+              class="flex md:flex-col gap-4 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0"
+            >
+              <button
+                class="text-left font-label text-[10px] uppercase tracking-widest text-primary flex items-center gap-2 whitespace-nowrap"
+              >
+                <span class="w-1 h-1 rounded-full bg-primary"></span> Sort Order
+              </button>
+              <button
+                class="text-left font-label text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap"
+              >
+                Filter Lang
+              </button>
+              <button
+                class="text-left font-label text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap"
+              >
+                Status
+              </button>
+            </nav>
+          </div>
+          <div class="flex-1 flex flex-col min-h-0">
+            <div class="p-8 md:p-10 flex-1 overflow-y-auto">
+              <section class="mb-12">
+                <h4
+                  class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-6"
+                >
+                  Select Sort Protocol
+                </h4>
+                <div class="flex flex-col gap-2">
+                  <label
+                    class="group flex items-center justify-between p-4 bg-surface-container rounded-xl cursor-pointer hover:bg-surface-bright transition-all"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-primary"
+                        style="font-variation-settings: &quot;FILL&quot; 1"
+                        >star</span
+                      >
+                      <span class="font-headline font-bold text-on-surface"
+                        >Most Stars</span
+                      >
+                    </div>
+                    <input checked="" class="hidden" name="sort" type="radio" />
+                    <div
+                      class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center"
+                    >
+                      <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+                    </div>
+                  </label>
+                  <label
+                    class="group flex items-center justify-between p-4 bg-surface-container-lowest/50 rounded-xl cursor-pointer hover:bg-surface-container transition-all"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface"
+                        >history</span
+                      >
+                      <span
+                        class="font-headline font-medium text-on-surface-variant group-hover:text-on-surface"
+                        >Recently Updated</span
+                      >
+                    </div>
+                    <input class="hidden" name="sort" type="radio" />
+                    <div
+                      class="w-5 h-5 rounded-full border-2 border-outline-variant"
+                    ></div>
+                  </label>
+                  <label
+                    class="group flex items-center justify-between p-4 bg-surface-container-lowest/50 rounded-xl cursor-pointer hover:bg-surface-container transition-all"
+                  >
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="material-symbols-outlined text-on-surface-variant group-hover:text-on-surface"
+                        >sort_by_alpha</span
+                      >
+                      <span
+                        class="font-headline font-medium text-on-surface-variant group-hover:text-on-surface"
+                        >Name (A-Z)</span
+                      >
+                    </div>
+                    <input class="hidden" name="sort" type="radio" />
+                    <div
+                      class="w-5 h-5 rounded-full border-2 border-outline-variant"
+                    ></div>
+                  </label>
+                </div>
+              </section>
+              <section>
+                <h4
+                  class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-6"
+                >
+                  Programming Language
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    class="px-5 py-2 rounded-full border border-primary bg-primary/10 text-primary font-label text-xs transition-all"
+                  >
+                    TypeScript
+                  </button>
+                  <button
+                    class="px-5 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-label text-xs hover:border-primary/50 transition-all"
+                  >
+                    JavaScript
+                  </button>
+                  <button
+                    class="px-5 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-label text-xs hover:border-primary/50 transition-all"
+                  >
+                    Python
+                  </button>
+                  <button
+                    class="px-5 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-label text-xs hover:border-primary/50 transition-all"
+                  >
+                    Rust
+                  </button>
+                  <button
+                    class="px-5 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-label text-xs hover:border-primary/50 transition-all"
+                  >
+                    Go
+                  </button>
+                </div>
+              </section>
+            </div>
+            <div
+              class="p-6 md:p-8 bg-surface-container-high/50 flex flex-col sm:flex-row items-center gap-4 justify-end"
+            >
+              <button
+                class="w-full sm:w-auto px-8 py-3 text-on-surface-variant font-label text-[10px] uppercase tracking-[0.2em] hover:text-on-surface transition-colors"
+              >
+                Clear Filters
+              </button>
+              <button
+                class="w-full sm:w-auto primary-gradient text-on-primary-container px-12 py-3 rounded-lg font-headline font-bold text-sm shadow-xl active:scale-95 transition-all"
+              >
+                Apply Changes
+              </button>
+            </div>
+          </div>
+          <button
+            class="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-highest/50 hover:bg-surface-container-highest transition-colors"
+          >
+            <span class="material-symbols-outlined text-on-surface">close</span>
+          </button>
+        </div>
+      </div>
+    </main>
+    <nav
+      class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#10141a]/80 backdrop-blur-md z-50 rounded-t-xl border-t border-[#424753]/15 shadow-[0_-8px_32px_rgba(0,0,0,0.4)]"
+    >
+      <div
+        class="flex flex-col items-center justify-center text-[#c2c6d6] hover:text-[#dfe2eb] ease-in-out duration-200 cursor-pointer"
+      >
+        <span class="material-symbols-outlined mb-1">explore</span>
+        <span
+          class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest"
+          >Explore</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center bg-[#0969da]/10 text-[#adc6ff] rounded-xl px-4 py-1 ease-in-out duration-200 cursor-pointer"
+      >
+        <span
+          class="material-symbols-outlined mb-1"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >history</span
+        >
+        <span
+          class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest font-bold"
+          >Recent</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-[#c2c6d6] hover:text-[#dfe2eb] ease-in-out duration-200 cursor-pointer"
+      >
+        <span class="material-symbols-outlined mb-1">person</span>
+        <span
+          class="font-['Space_Grotesk'] text-[10px] uppercase tracking-widest"
+          >Profile</span
+        >
+      </div>
+    </nav>
+  </body>
+</html>
