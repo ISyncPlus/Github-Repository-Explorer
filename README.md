@@ -91,10 +91,3 @@ npm run lint
 6. Route scope intentionally minimal
    - Single functional explorer route keeps the app easy to reason about for a take-home style project.
    - Trade-off: no deep links for specific users or filter state.
-
-## Potential Next Improvements
-
-- Optional token-based auth via environment variables to improve rate limits.
-- Server-driven pagination/infinite loading for large repository lists.
-- URL query param sync for username and filters.
-- Automated tests for hook logic and key UI states.
