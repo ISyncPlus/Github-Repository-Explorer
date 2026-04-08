@@ -38,7 +38,9 @@ npm run lint
 - Loading skeletons for user and repository sections.
 - Clear empty/error states for first load, no repos, and no filter matches.
 - Recent searches persisted to local storage (up to 5 usernames).
+- Floating search-history dropdown with keyboard support (Arrow keys, Enter, Escape).
 - Client-side filters for repository name, language, and sort order.
+- Client-side pagination for repository results (6 repos per page).
 
 ## Key Design Decisions
 
@@ -60,6 +62,10 @@ npm run lint
 5. Client-first filtering and sorting
    - Repos are fetched once per user search (up to 30 items), then filtered/sorted in-memory for snappy interactions.
 
+6. Client-side pagination after filtering/sorting
+   - Pagination is applied to the filtered/sorted result so each page reflects the current view correctly.
+   - Page resets are handled when search/filter/sort changes to avoid out-of-range pages.
+
 ## Conscious Trade-offs
 
 1. Unauthenticated GitHub API requests
@@ -74,17 +80,21 @@ npm run lint
    - Reduces API calls and complexity.
    - Trade-off: filter scope is limited to the fetched repository subset.
 
-4. Local storage for recent history
+4. Client-side pagination only
+   - Fast and simple for small datasets.
+   - Trade-off: it paginates only the already-fetched repos, not the full account repository set.
+
+5. Local storage for recent history
    - No backend required and improves convenience.
    - Trade-off: history is browser/device specific and not shareable.
 
-5. Route scope intentionally minimal
+6. Route scope intentionally minimal
    - Single functional explorer route keeps the app easy to reason about for a take-home style project.
    - Trade-off: no deep links for specific users or filter state.
 
 ## Potential Next Improvements
 
 - Optional token-based auth via environment variables to improve rate limits.
-- Pagination/infinite scroll for large repository lists.
+- Server-driven pagination/infinite loading for large repository lists.
 - URL query param sync for username and filters.
 - Automated tests for hook logic and key UI states.
