@@ -12,4 +12,4 @@ export async function getGitHubRepos(username: string, signal?: AbortSignal) {
     { signal },
   )
   return response.data
-}
+} 

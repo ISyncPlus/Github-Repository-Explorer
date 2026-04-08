@@ -21,11 +21,6 @@ export function AppShell({ children }: AppShellProps) {
               <p className="font-semibold">GitHub Repository Explorer</p>
             </div>
           </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
-            <span className="text-sky-300">Explore</span>
-            <span>Recent</span>
-            <span>Profile</span>
-          </nav>
         </div>
       </header>
 
